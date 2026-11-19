@@ -1,9 +1,9 @@
 import ollama
 refund_amount = 15000
 #Business rule decided by the code not by LLM
-if refund_amount > 10000:
+if refund_amount >= 10000:
     approval_required = "Operations manager approval"
-elif refund_amount > 5000:
+elif refund_amount >= 5000:
     approval_required = "Team lead approval"
 else:
     approval_required = "No approval required"
