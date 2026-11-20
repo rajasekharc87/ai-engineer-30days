@@ -11,10 +11,10 @@ while True:
     if user_input.lower() == "exit":
         break
 
-    #### messages.append({"role": "user", "content": user_input})
+    messages.append({"role": "user", "content": user_input})
 
     response = ollama.chat(model="llama3.2:3b", messages=messages)
     reply = response["message"]["content"]
 
-    ### messages.append({"role": "assistant", "content": reply})
+    messages.append({"role": "assistant", "content": reply})
     print("Bot:", reply)
