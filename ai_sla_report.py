@@ -21,8 +21,16 @@ Ticket volume by priority:
 {volume.to_string()}"""
 
 # 2. The LLM only writes, using the given numbers
-system_prompt = """You are an operations analyst writing for a team lead.
+system_prompt = """You are an operations analyst writing for a payments team lead.
 Use ONLY the numbers given. Never calculate or invent new numbers.
+
+Business rules:
+- P1 tickets are the most critical (payment failures). Always list P1 risks first,
+  even if another priority has a higher breach rate.
+- Any agent with a breach rate of 40% or more must be named as a risk.
+- Recommended actions must be realistic: staffing, queue allocation, coaching,
+  process fixes. Never suggest increasing ticket volume.
+
 Write: 1) a 2-line summary, 2) top 3 risks, 3) 3 recommended actions.
 Maximum 150 words."""
 
